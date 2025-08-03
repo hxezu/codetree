@@ -5,35 +5,43 @@ const rectA = input[0].split(' ').map(Number);
 const rectB = input[1].split(' ').map(Number);
 const rectM = input[2].split(' ').map(Number);
 
-const covered = new Set()
-let answer = 0 ;
+const OFFSET = 1000;
+const SIZE = 2000;
 
-function coloring([x1,y1,x2,y2]){
+const answer = Array.from({length:SIZE}, ()=>Array(SIZE).fill(false))
+
+function fill([x1,y1,x2,y2]){
+    x1+= OFFSET; x2+=OFFSET
+    y1+= OFFSET; y2+=OFFSET
+
     for(let i=x1; i<x2; i++){
-        for(let j=y1;j<y2; j++){
-            const key = `${i}:${j}`
-            if(!covered.has(key)){
-                covered.add(key)
-                answer++
-            }
+        for(let j=y1; j<y2; j++){
+            answer[i][j] = true
         }
     }
 }
 
-function substract([x1,y1,x2,y2]){
+function erase([x1,y1,x2,y2]){
+    x1+= OFFSET; x2+=OFFSET
+    y1+= OFFSET; y2+=OFFSET
+
     for(let i=x1; i<x2; i++){
-        for(let j=y1;j<y2; j++){
-            const key = `${i}:${j}`
-            if(covered.has(key)){
-                covered.delete(key)
-                answer--
-            }
+        for(let j=y1; j<y2; j++){
+            answer[i][j] = false
         }
     }
 }
 
-coloring(rectA)
-coloring(rectB)
-substract(rectM)
+fill(rectA)
+fill(rectB)
+erase(rectM)
 
-console.log(answer)
+let cnt=0;
+
+    for(let i=0; i<SIZE; i++){
+        for(let j=0; j<SIZE; j++){
+            if(answer[i][j]) cnt++
+        }
+    }
+
+    console.log(cnt)
