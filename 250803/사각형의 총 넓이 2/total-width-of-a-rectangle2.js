@@ -10,7 +10,7 @@ let answer = 0;
 function colorRects([x1,y1,x2,y2]){
     for(let i=x1; i<x2; i++){
         for(let j=y1; j<y2; j++){
-            const key = `${i}${j}`
+            const key = `${i}:${j}`
             if(!answerSet.has(key)){
                 answerSet.add(key)
                 answer++;
