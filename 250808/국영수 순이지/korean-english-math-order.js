@@ -14,9 +14,6 @@ class Student{
         this.eng= Number(eng);
         this.math=Number(math)
     }
-    total(){
-        return this.kor + this.eng+this.math
-    }
 }
 
 for(let i=0;i<n; i++){
@@ -25,9 +22,9 @@ for(let i=0;i<n; i++){
 }
 
 students.sort((a,b)=>{
-    if(a.total() !== b.total()) return b.total() - a.total()
     if(b.kor !== a.kor) return b.kor - a.kor
     if(b.eng !== a.eng) return b.eng - a.eng
+    return b.math-a.math
 })
 
 for (let student of students) {
