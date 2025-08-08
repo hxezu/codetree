@@ -5,8 +5,8 @@ const y = Number(input[0]);
 
 function year(n){
     if(n%4===0){
-            if(n%100===0 && n%4===0) return false
-        return true;
+        if(n%100===0 && n%400!==0) return false
+    return true;
     }
 }
 
