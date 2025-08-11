@@ -14,7 +14,7 @@ while(true){
     if(day===A  && hour===B&& min===C){
         break;
     }
-    if(day<11 && hour<11 && min<11){
+    if(day<=11 && hour<=11 && min<11){
         elapsed_mins= -1
         break
     }
