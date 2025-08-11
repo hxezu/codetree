@@ -6,30 +6,8 @@ const [A, B, C] = input[0].split(' ').map(Number);
 // Please write your code here.
 
 let elapsed_mins = 0;
-let day = 11;
-let hour = 11;
-let min = 11;
 
-while(true){
-    if(day===A  && hour===B&& min===C){
-        break;
-    }
-    if(day<=11 && hour<=11 && min<11){
-        elapsed_mins= -1
-        break
-    }
+const baseTime = 11*24*60 + 11*60 + 11;
+const calTime = A*24*60 + B*60 + C
 
-    elapsed_mins+=1;
-    min +=1;
-
-    if(min>60){
-        hour+=1;
-        min=1;
-    }
-    if(hour>24){
-        day+=1
-        hour=1
-    }
-}
-
-console.log(elapsed_mins)
+console.log((calTime-baseTime)<0?-1:calTime-baseTime)
