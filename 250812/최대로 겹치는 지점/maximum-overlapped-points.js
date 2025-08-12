@@ -11,7 +11,7 @@ for (let i = 1; i <= n; i++) {
 let answer = new Array(100).fill(0)
 
 function fillLine(arr){
-    for(let i=arr[0]; i<=[1]+1; i++){
+    for(let i=arr[0]; i<=arr[1]; i++){
         answer[i]+=1
     }
 }
