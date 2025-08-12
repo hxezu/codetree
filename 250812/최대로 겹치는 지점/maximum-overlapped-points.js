@@ -8,7 +8,7 @@ for (let i = 1; i <= n; i++) {
 }
 
 // Please Write your code here.
-let answer = new Array(100).fill(0)
+let answer = new Array(101).fill(0)
 
 function fillLine(arr){
     for(let i=arr[0]; i<=arr[1]; i++){
