@@ -11,7 +11,7 @@ const pq = new Heap()
 commands.forEach(cmd=>{
     const [op, num] = cmd.split(" ")
     if(op==="push"){
-        pq.push(num)
+        pq.push(Number(num))
     }else if(op==="pop"){
         console.log(pq.pop())
     }else if(op==="size"){
