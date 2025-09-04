@@ -12,4 +12,4 @@ while(pq.size>=2){
     if(value >0) pq.push(value)
 }
 
-console.log(pq.peek())
+console.log(pq.size ? -1 : pq.peek())
