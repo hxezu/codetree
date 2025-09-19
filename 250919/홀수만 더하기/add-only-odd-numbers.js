@@ -1,10 +1,15 @@
-const fs = require("fs"); 
-const arr = fs.readFileSync(0).toString().trim().split("\n").map(Number);
-let sum =0
-for(let i=0; i<arr.length; i++){
-    if(arr[i]%3===0 && arr[i]%2!==0){
-sum += arr[i]
+// 변수 선언 및 입력
+const fs = require("fs");
+let input = fs.readFileSync(0).toString().trim().split("\n");
+let n = Number(input[0]);
+let sumVal = 0;
+
+for (let i = 1; i <= n; i++) {
+    let x = Number(input[i]);
+    if (x % 2 === 1 && x % 3 === 0) {
+        sumVal += x;
     }
 }
 
-console.log(sum)
+// 출력
+console.log(sumVal);
