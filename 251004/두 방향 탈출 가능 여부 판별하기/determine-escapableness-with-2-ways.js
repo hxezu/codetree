@@ -4,10 +4,10 @@ const input = fs.readFileSync(0).toString().trim().split('\n');
 const [n, m] = input[0].split(' ').map(Number);
 const grid = input.slice(1, n + 1).map(row => row.split(' ').map(Number));
 
-const visited = Array.from({length:n}, ()=>Array(n).fill(false))
+const visited = Array.from({length:n}, ()=>Array(m).fill(false))
 
 function canGo(x,y){
-    if(x<0 || x>=n || y<0 || y>=n) return false
+    if(x<0 || x>=n || y<0 || y>=m) return false
     if(visited[x][y] || grid[x][y]===0) return false
     return true
 }
@@ -15,7 +15,7 @@ function canGo(x,y){
 let reachable = 0
 
 function dfs(x,y){
-    if(x===n-1 && y===n-1){
+    if(x===n-1 && y===m-1){
         reachable = 1
         return 
     }
